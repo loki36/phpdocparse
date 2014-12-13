@@ -1,4 +1,4 @@
-phpdocparser
+PhpDocParser
 ============
 
 This classes are to provid an easy way to extract information of a given PhpDoc
