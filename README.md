@@ -7,6 +7,12 @@ all tags are accesible in an indexed array or using getTag($tagName) or getForma
 all tags are an array of elements and each element can contains multi lines (or rows)
 you can use a formater (and create your own) call when using  getFormatedTag or getFormatedTags
 
+formater should implements interface PhpDocParserFormaterInterface
+example of formater and interface definition in phpdocparserformater.php file
+
+register a default formater $this->registerDefaultFormater(new DefaultFormater());
+register a formater for a tag $this->registerFormater('param',new MyParamFormater());
+
 tips : short and long description are stored in tag short_desc and long_desc
 
 ```
