@@ -1,7 +1,7 @@
 PhpDocParser
 ============
 
-This classes are to provid an easy way to extract information of a given PhpDoc
+This classes provide an easy way to extract information of a given PhpDoc
 
 all tags are accesible in an indexed array or using getTag($tagName) or getFormatedTag($tagName)
 all tags are an array of elements and each element can contains multi lines (or rows)
