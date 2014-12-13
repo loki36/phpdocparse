@@ -69,7 +69,7 @@ class PhpDocParser
    */  
   public function __construct($document=null){
     $this->registerDefaultFormater(new DefaultFormater());
-    if($document){
+    if($document!==null){
       $this->setDocument($document);
     }
   }
@@ -198,7 +198,7 @@ class PhpDocParser
    */  
   protected function deleteFirstEmptyLine(){
     // delete first empty line
-    while($this->rows[0]=="" && count($this->rows)>1){
+    while(isset($this->rows[0]) && $this->rows[0]=="" && count($this->rows)>1){
       array_shift($this->rows);
     }
   }

@@ -4,41 +4,82 @@ include ('../phpdocparser.php');
 include('testclass.php');
 include('testclass2.php');
 
-/*
-$a = new TestClass();
-$rm = new ReflectionMethod($a,'sql_count');
-
-$pdp = new PhpDocParser($rm->getDocComment());
-//$pdp->debug();
-//echo "<br /><br />";
-//var_dump($pdp->getDocument());
-$pdp->registerFormater('param',new ParamFormater());
-
-//var_dump($pdp->getFormatedTag('param'));
-//var_dump($pdp->getTag('param',1));
-var_dump($pdp->getFormatedTags());
-*/
-
-$a = new TestClass2();
-$ro = new ReflectionObject($a);
-$pdp = new PhpDocParser($ro->getDocComment());
-
-//var_dump($pdp->getFormatedTags());
+// Php Doc for class PhpDocParser
+$pdp = new PhpDocParser();
+$ro = new ReflectionObject($pdp);
+$pdp->setDocument($ro->getDocComment());
 $pdp->debug('getFormatedTags');
 echo "<br/>";
+
+// Php Doc for properties of class PhpDocParser
 foreach($ro->getProperties() as $property){
   echo "<br/>";
-  echo $property->getName()."<br/>";
+  echo "Property : ".$property->getName()."<br/>";
   $pdp->setDocument($property->getDocComment());
   $pdp->debug('getFormatedTags');
   echo "<br/>";
 }
-
 $pdp->debug('getFormatedTags');
 echo "<br/>";
+
+// Php Doc for methods of class PhpDocParser
 foreach($ro->getMethods() as $method){
   echo "<br/>";
-  echo $method->getName()."<br/>";
+  echo "Method : ".$method->getName()."<br/>";
+  $pdp->setDocument($method->getDocComment());
+  $pdp->debug('getFormatedTags');
+  echo "<br/>";
+}
+
+// Php Doc for class TestClass2
+$a = new TestClass2();
+$ro = new ReflectionObject($a);
+$pdp = new PhpDocParser($ro->getDocComment());
+$pdp->debug('getFormatedTags');
+
+// Php Doc for properties of class TestClass2
+echo "<br/>";
+foreach($ro->getProperties() as $property){
+  echo "<br/>";
+  echo "Property : ".$property->getName()."<br/>";
+  $pdp->setDocument($property->getDocComment());
+  $pdp->debug('getFormatedTags');
+  echo "<br/>";
+}
+$pdp->debug('getFormatedTags');
+echo "<br/>";
+
+// Php Doc for methods of class TestClass2
+foreach($ro->getMethods() as $method){
+  echo "<br/>";
+  echo "Method : ".$method->getName()."<br/>";
+  $pdp->setDocument($method->getDocComment());
+  $pdp->debug('getFormatedTags');
+  echo "<br/>";
+}
+
+// Php Doc for class TestClass
+$a = new TestClass();
+$ro = new ReflectionObject($a);
+$pdp = new PhpDocParser($ro->getDocComment());
+$pdp->debug('getFormatedTags');
+
+// Php Doc for properties of class TestClass
+echo "<br/>";
+foreach($ro->getProperties() as $property){
+  echo "<br/>";
+  echo "Property : ".$property->getName()."<br/>";
+  $pdp->setDocument($property->getDocComment());
+  $pdp->debug('getFormatedTags');
+  echo "<br/>";
+}
+$pdp->debug('getFormatedTags');
+echo "<br/>";
+
+// Php Doc for methods of class TestClass
+foreach($ro->getMethods() as $method){
+  echo "<br/>";
+  echo "Method : ".$method->getName()."<br/>";
   $pdp->setDocument($method->getDocComment());
   $pdp->debug('getFormatedTags');
   echo "<br/>";
