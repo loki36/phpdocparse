@@ -3,6 +3,83 @@ phpdocparse
 
 This classes are to provid an easy way to extract information of a given PhpDoc
 
+all tags are accesible in an indexed array or using getTag($tagName) or getFormatedTag($tagName)
+all tags are an array of elements and each element can contains multi lines (or rows)
+you can use a formater (and create your own) call when using  getFormatedTag or getFormatedTags
+
+tips : short and long description are stored in tag short_desc and long_desc
+
+```
+Array
+(
+    [short_desc] => Array
+        (
+            [0] => Registers the status of foo's universe
+        )
+
+    [long_desc] => Array
+        (
+            [0] => Summaries for methods should use 3rd person declarative rather
+than 2nd person imperative, beginning with a verb phrase.
+
+Summaries should add description beyond the method's name. The
+best method names are "self-documenting", meaning they tell you
+basically what the method does.  If the summary merely repeats
+the method name in sentence form, it is not providing more
+information.
+
+Summary Examples:
++ Sets the label              (preferred)
++ Set the label               (avoid)
++ This method sets the label  (avoid)
+        )
+
+    [param] => Array
+        (
+            [0] => string $arg1 the string to quote
+            [1] => int    $arg2 an integer of how many problems happened.
+        )
+
+    [return] => Array
+        (
+            [0] => int the integer of the set mode used. FALSE if foo
+        )
+
+    [throws] => Array
+        (
+            [0] => exceptionclass [description]
+        )
+
+    [access] => Array
+        (
+            [0] => public
+        )
+
+    [static] => Array
+        (
+            [0] => 
+        )
+
+    [see] => Array
+        (
+            [0] => Net_Sample::$foo, Net_Other::someMethod()
+        )
+
+    [since] => Array
+        (
+            [0] => Method available since Release 1.2.0
+        )
+
+    [deprecated] => Array
+        (
+            [0] => Method deprecated in Release 2.0.0
+        )
+
+)
+```
+
+
+
 example :
 ``` 
 include ('../phpdocparser.php');
