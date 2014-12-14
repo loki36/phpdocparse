@@ -6,6 +6,8 @@ include('testclass2.php');
 
 // Php Doc for class PhpDocParser
 $pdp = new PhpDocParser();
+$pdp->registerFormater('param',new ParamFormater());
+$pdp->registerFormater('return',new ReturnFormater());
 $ro = new ReflectionObject($pdp);
 $pdp->setDocument($ro->getDocComment());
 $pdp->debug('getFormatedTags');

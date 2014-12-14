@@ -120,6 +120,19 @@ class PhpDocParser
   public function registerFormater($tagName,PhpDocParserFormaterInterface $formaterObject){
     $this->formater[$tagName] = $formaterObject;
   }
+  
+  /**
+   * Unregister a formater for a tag
+   *
+   * @param string $tagName (require) Name of tag
+   * @access public
+   */   
+  public function unregisterFormater($tagName){
+    if(isset($this->formater[$tagName])){
+      unset($this->formater[$tagName]);
+    }
+  }
+
 
   /**
    * Register a formater using as default if no formater found for a tag
