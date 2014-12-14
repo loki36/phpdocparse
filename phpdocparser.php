@@ -269,7 +269,7 @@ class PhpDocParser
   /**
    * print_r of result function in parameter
    * 
-   * @param strinf $method method to debug
+   * @param string $method method to debug
    * @access public
    */   
   public function debug($method){
