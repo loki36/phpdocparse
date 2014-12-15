@@ -19,7 +19,8 @@ class ParamFormater implements PhpDocParserFormaterInterface
       $type ="";
       if(preg_match("/^([^\s]+)/",$lines[0],$matches)){
         $type = $matches[1];
-        $lines[0] = trim(preg_replace("/^".str_replace("|","\\|",$type)."/","",$lines[0]));
+        $preg_type = str_replace(")","\)",str_replace("(","\(",str_replace("|","\|",$type)));
+        $lines[0] = trim(preg_replace("/^".$preg_type."/","",$lines[0]));
       }
       //Name of param
       $name ="";
@@ -41,7 +42,8 @@ class ReturnFormater implements PhpDocParserFormaterInterface
       $type ="";
       if(preg_match("/^([^\s]+)/",$lines[0],$matches)){
         $type = $matches[1];
-        $lines[0] = trim(preg_replace("/^".str_replace("|","\\|",$type)."/","",$lines[0]));
+        $preg_type = str_replace(")","\)",str_replace("(","\(",str_replace("|","\|",$type)));
+        $lines[0] = trim(preg_replace("/^".$preg_type."/","",$lines[0]));
       }
       return array("type"=>$type,"desc"=>implode('<br/>',$lines));
     }
